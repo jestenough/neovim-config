@@ -12,11 +12,17 @@ cmd[[filetype plugin on]]
 -- Disable comments on pressing Enter
 cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
+-- General {{{
+opt.encoding = 'utf-8'
+opt.history=1000
+-- }}}
+
 -- Tabs {{{
-opt.expandtab = true                -- Use spaces by default
-opt.shiftwidth = 2                  -- Set amount of space characters, when we press "<" or ">"
-opt.tabstop = 2                     -- 1 tab equal 2 spaces
-opt.smartindent = true              -- Turn on smart indentation. See in the docs for more info
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.smartindent = true
+opt.autoindent = true
 -- }}}
 
 -- Clipboard {{{
@@ -33,16 +39,21 @@ opt.ignorecase = true               -- Ignore case if all characters in lower ca
 opt.joinspaces = false              -- Join multiple spaces in search
 opt.smartcase = true                -- When there is a one capital letter search for exact match
 opt.showmatch = true                -- Highlight search instances
+opt.incsearch = true                -- Allowing to see search results as typing
+opt.hlsearch = true                 -- Highlight search result in the windows
 -- }}}
 
 -- Window {{{
 opt.splitbelow = true               -- Put new windows below current
 opt.splitright = true               -- Put new vertical splits to right
+opt.number = true                   -- Display line numbers in the left margin of each window
+opt.cursorline = true               -- Highlight the current line in the window
 -- }}}
 
 -- Wild Menu {{{
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
+opt.wildignorecase = true
 -- }}}
 
 -- Default Plugins {{{
@@ -71,5 +82,3 @@ for _, plugin in pairs(disabled_built_ins) do
     g["loaded_" .. plugin] = 1
 end
 -- }}}
-
--- vim: tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=1
